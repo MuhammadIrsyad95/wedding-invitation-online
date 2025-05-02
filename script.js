@@ -44,7 +44,7 @@ function copyRek(nomor) {
 
 // Countdown Timer
 function countdown() {
-  const weddingDate = new Date("February 14, 2026 09:00:00").getTime();
+  const weddingDate = new Date("August 14, 2025 09:00:00").getTime();
   const now = new Date().getTime();
   const distance = weddingDate - now;
 
