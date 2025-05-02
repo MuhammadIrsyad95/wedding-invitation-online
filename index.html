@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Undangan pernikahan digital Romeo & Juliet. Bergabunglah di hari bahagia kami!" />
+  <meta name="keywords" content="undangan pernikahan, wedding invitation, Romeo & Juliet" />
+  <meta name="author" content="YourBrandName" />
+  <title>Undangan Pernikahan Romeo & Juliet</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <!-- Audio Background -->
+  <audio id="bg-music" loop>
+    <source src="music/wedding-bg.mp3" type="audio/mpeg" />
+  </audio>
+  <button class="music-toggle" onclick="toggleMusic()">🎵</button>
+
+  <!-- Landing Page -->
+  <section class="landing" id="landing">
+    <img src="img/2.jpg" alt="Wedding Cover" class="landing-img" />
+    <div class="landing-overlay">
+      <h1 data-aos="fade-up">Dionisius & Tere</h1>
+      <p data-aos="fade-up" data-aos-delay="200">Kepada Yth. <strong id="recipient-name">Tamu Undangan</strong></p>
+      <p data-aos="fade-up" data-aos-delay="400">Kami mengundang Anda untuk merayakan cinta kami</p>
+      <button data-aos="zoom-in" data-aos-delay="600" onclick="openInvitation()">Buka Undangan</button>
+    </div>
+  </section>
+
+  <!-- Main Invitation -->
+  <main id="invitation" style="display: none;">
+    <!-- Countdown -->
+    <section class="section countdown" data-aos="fade-up">
+      <h2>Hari Bahagia Kami</h2>
+      <div id="countdown">
+        <div><span id="days">00</span>Hari</div>
+        <div><span id="hours">00</span>Jam</div>
+        <div><span id="minutes">00</span>Menit</div>
+        <div><span id="seconds">00</span>Detik</div>
+      </div>
+    </section>
+
+    <!-- Couple -->
+    <section class="section couple" data-aos="fade-up">
+      <h2>Romeo & Juliet</h2>
+      <p class="subtext">Dengan penuh cinta, kami mengundang Anda untuk hadir di hari istimewa kami.</p>
+      <div class="couple-box">
+        <div class="person" data-aos="fade-right">
+          <img src="img/1.jpg" alt="Romeo" class="avatar" />
+          <h3>Romeo</h3>
+          <p>Anak dari Bapak Don & Ibu Donna</p>
+        </div>
+        <div class="person" data-aos="fade-left">
+          <img src="img/2.jpg" alt="Juliet" class="avatar" />
+          <h3>Juliet</h3>
+          <p>Anak dari Bapak Capulet & Ibu Lady Capulet</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section class="section story" data-aos="fade-up">
+      <h2>Cerita Cinta Kami</h2>
+      <p>Kami bertemu di acara puisi di Verona, berbagi bait-bait cinta. Dari sana, cinta kami tumbuh menjadi ikatan abadi yang akan kami resmikan di hari istimewa ini.</p>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section gallery" data-aos="fade-up">
+      <h2>Galeri</h2>
+      <div class="grid">
+        <img src="img/4.jpg" alt="Foto 1" data-aos="zoom-in" />
+        <img src="img/5.jpg" alt="Foto 2" data-aos="zoom-in" data-aos-delay="200" />
+        <img src="img/6.jpg" alt="Foto 3" data-aos="zoom-in" data-aos-delay="400" />
+      </div>
+    </section>
+
+    <!-- Event Details -->
+    <section class="section location" data-aos="fade-up">
+      <h2>Detail Acara</h2>
+      <p><strong>Tanggal:</strong> 14 Februari 2026</p>
+      <p><strong>Waktu:</strong> 09:00 - Selesai</p>
+      <p><strong>Lok conocekasi:</strong> The Springlake Summarecon Bekasi</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5001972791984!2d107.00301901476912!3d-6.20017539551978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698d6c3a6e880f%3A0x436c70a1b10a6d4a!2sThe%20Springlake%20Summarecon%20Bekasi!5e0!3m2!1sid!2sid!4v1714621719289!5m2!1sid!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <!-- RSVP -->
+    <section class="section rsvp" data-aos="fade-up">
+      <h2>Konfirmasi Kehadiran</h2>
+      <form action="https://formspree.io/f/your-form-id" method="POST" id="rsvp-form">
+        <input type="text" name="name" placeholder="Nama Anda" required />
+        <select name="attendance" required>
+          <option value="">-- Pilih Kehadiran --</option>
+          <option value="hadir">Hadir</option>
+          <option value="tidak">Tidak Hadir</option>
+        </select>
+        <textarea name="message" placeholder="Ucapan atau Pesan" rows="4"></textarea>
+        <button type="submit">Kirim</button>
+      </form>
+      <div id="rsvp-result"></div>
+    </section>
+
+    <!-- Guestbook -->
+    <section class="section guestbook" data-aos="fade-up">
+      <h2>Ucapan Tamu</h2>
+      <div id="guestbook-list"></div>
+    </section>
+
+    <!-- Digital Envelope -->
+    <section class="section rekening" data-aos="fade-up">
+      <h2>Amplop Digital</h2>
+      <p onclick="copyRek('1234567890')" class="rek-item">💳 BCA - 1234567890 - a.n Romeo</p>
+      <p onclick="copyRek('0987654321')" class="rek-item">💳 BRI - 0987654321 - a.n Juliet</p>
+      <small>Klik untuk menyalin nomor rekening</small>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Dibuat dengan ❤️ oleh <a href="https://yourbrand.com" target="_blank">YourBrandName</a></p>
+    </footer>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
